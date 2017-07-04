@@ -1,4 +1,4 @@
-=== AtZack ===
+=== Zack ===
 
 Theme Name: Zack
 Author: Zack
