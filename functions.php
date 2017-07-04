@@ -1,56 +1,25 @@
 <?php
-/**
- * Zack functions and definitions
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package Zack
- */
+define('ATZACK_THEME_VERSION', '1.0.13');
+define('ATZACK_THEME_JS_PREFIX', '.min');
+
+require get_template_directory() . '/inc/extras.php';
+require get_template_directory() . '/inc/settings/settings.php';
+require get_template_directory() . '/inc/settings.php';
+require get_template_directory() . '/inc/template-tags.php';
 
 if ( ! function_exists( 'zack_setup' ) ) :
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
- */
 function zack_setup() {
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on Zack, use a find and replace
-	 * to change 'zack' to the name of your theme in all the template files.
-	 */
 	load_theme_textdomain( 'zack', get_template_directory() . '/languages' );
 
-	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
-
-	/*
-	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
-	 * provide it for us.
-	 */
 	add_theme_support( 'title-tag' );
-
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-	 */
 	add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'custom-logo' );
 
-	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'menu-1' => esc_html__( 'Primary', 'zack' ),
+		'primary' => esc_html__( 'Primary Menu', 'zack' ),
 	) );
 
-	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	 */
 	add_theme_support( 'html5', array(
 		'search-form',
 		'comment-form',
@@ -59,69 +28,107 @@ function zack_setup() {
 		'caption',
 	) );
 
-	// Set up the WordPress core custom background feature.
+	add_theme_support( 'post-formats', array(
+		'gallery',
+		'image',
+		'video',
+	) );
+
+	add_image_size( 'zack-263x174-crop', 263, 174, true );
+	add_image_size( 'zack-360x238-crop', 360, 238, true );
+
 	add_theme_support( 'custom-background', apply_filters( 'zack_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
 
-	// Add theme support for selective refresh for widgets.
-	add_theme_support( 'customize-selective-refresh-widgets' );
-
-	/**
-	 * Add support for core custom logo.
-	 *
-	 * @link https://codex.wordpress.org/Theme_Logo
-	 */
-	add_theme_support( 'custom-logo', array(
-		'height'      => 250,
-		'width'       => 250,
-		'flex-width'  => true,
-		'flex-height' => true,
+	add_theme_support( 'featured-content', array(
+		'filter'     => 'zack_get_featured_posts',
+		'max_posts'  => 5,
+		'post_types' => array( 'post' ),
 	) );
+
+	add_filter( 'term_description', 'shortcode_unautop' );
+	add_filter( 'term_description', 'do_shortcode' );
+
+	add_theme_support( 'atzack-template-settings' );
+
 }
-endif;
+endif; // zack_setup.
 add_action( 'after_setup_theme', 'zack_setup' );
 
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
+if ( function_exists( 'is_woocommerce' ) ) {
+	require get_template_directory() . '/woocommerce/functions.php';
+}
+
 function zack_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'zack_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'atzack_uwnind_content_width', 1140 );
 }
 add_action( 'after_setup_theme', 'zack_content_width', 0 );
 
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
 function zack_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'zack' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'zack' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
+		'id'            => 'main-sidebar',
+		'description'   => esc_html__( 'Visible on posts and pages that use the Default or Full Width, With Sidebar layout.', 'zack' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h2 class="widget-title heading-strike">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer', 'zack' ),
+		'id'            => 'footer-sidebar',
+		'description'   => esc_html__( 'A column will be automatically assigned to each widget inserted', 'zack' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h2 class="widget-title heading-strike">',
+		'after_title'   => '</h2>',
+	) );
+
+	if ( function_exists( 'is_woocommerce' ) ) {
+		register_sidebar( array(
+			'name' 			=> esc_html__( 'Shop', 'zack' ),
+			'id' 			=> 'shop-sidebar',
+			'description' 	=> esc_html__( 'Displays on WooCommerce pages.', 'zack' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget' 	=> '</aside>',
+			'before_title' 	=> '<h2 class="widget-title heading-strike">',
+			'after_title' 	=> '</h2>',
+		) );
+	}
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Masthead', 'zack' ),
+		'id'            => 'masthead-sidebar',
+		'description'   => esc_html__( 'Replaces the logo and description.', 'zack' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h2 class="widget-title heading-strike">',
 		'after_title'   => '</h2>',
 	) );
 }
 add_action( 'widgets_init', 'zack_widgets_init' );
 
-/**
- * Enqueue scripts and styles.
- */
 function zack_scripts() {
-	wp_enqueue_style( 'zack-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'zack-style', get_template_directory_uri() . '/style.min.css', array(), ATZACK_THEME_VERSION );
 
-	wp_enqueue_script( 'zack-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_register_style( 'zack-flexslider', get_template_directory_uri() . '/inc/flexslider.css' );
+	wp_register_script( 'jquery-flexslider', get_template_directory_uri() . '/js/jquery.flexslider' . ATZACK_THEME_JS_PREFIX . '.js', array( 'jquery' ), '2.6.3', true );
 
-	wp_enqueue_script( 'zack-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	if ( ( is_home() && atzack_setting( 'blog_featured_slider' ) && zack_has_featured_posts() ) || ( is_single() && has_post_format( 'gallery' ) ) ) {
+		wp_enqueue_style( 'zack-flexslider' );
+		wp_enqueue_script( 'jquery-flexslider' );
+	}
+
+	if ( ! class_exists( 'Jetpack' ) ) {
+		wp_enqueue_script( 'jquery-fitvids', get_template_directory_uri() . '/js/jquery.fitvids' . ATZACK_THEME_JS_PREFIX . '.js', array( 'jquery' ), 1.1, true );
+	}
+
+	wp_enqueue_script( 'zack-script', get_template_directory_uri() . '/js/zack' . ATZACK_THEME_JS_PREFIX . '.js', array( 'jquery' ), ATZACK_THEME_VERSION, true );
+
+	wp_enqueue_script( 'zack-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -129,27 +136,25 @@ function zack_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'zack_scripts' );
 
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
+function zack_enqueue_flexslider() {
+	wp_enqueue_style( 'zack-flexslider' );
+	wp_enqueue_script( 'jquery-flexslider' );
+}
 
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
+if ( ! function_exists( 'zack_post_class_filter' ) ) :
+function zack_post_class_filter( $classes ) {
+	$classes[] = 'post';
 
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
-require get_template_directory() . '/inc/template-functions.php';
+	if ( is_page() ) {
+		$class_key = array_search( 'hentry', $classes );
 
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
+		if ( $class_key !== false) {
+			unset( $classes[ $class_key ] );
+		}
+	}
 
-/**
- * Load Jetpack compatibility file.
- */
-require get_template_directory() . '/inc/jetpack.php';
+	$classes = array_unique( $classes );
+	return $classes;
+}
+endif;
+add_filter( 'post_class', 'zack_post_class_filter' );

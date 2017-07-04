@@ -1,15 +1,4 @@
-<?php
-/**
- * The header for our theme
- *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package Zack
- */
-
-?><!doctype html>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -23,33 +12,26 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'zack' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-			endif;
+	<?php if ( atzack_page_setting( 'display_masthead', true ) ) : ?>
+		<header id="masthead" class="site-header" role="banner">
+			<div class="main-navigation-bar sticky-bar <?php if ( atzack_setting( 'navigation_sticky' ) ) echo 'sticky-menu'; ?>">
+			    <div class="container">
+			        <div class="site-branding">
+			            <?php zack_display_logo(); ?>
+			            <?php if ( atzack_setting( 'branding_site_description' ) ) : ?>
+			                <p class="site-description"><?php bloginfo( 'description' ); ?></p>
+			            <?php endif ?>
+			        </div><!-- .site-branding -->
+							<nav id="site-navigation" class="main-navigation" role="navigation">
+								<button id="mobile-menu-button" class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php zack_display_icon( 'menu' ); ?></button>
+								<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+							</nav><!-- #site-navigation -->
+							<div id="mobile-navigation"></div>
+			    </div><!-- .container -->
+			</div>
 
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php
-			endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'zack' ); ?></button>
-			<?php
-				wp_nav_menu( array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				) );
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+		</header><!-- #masthead -->
+	<?php endif; ?>
 
 	<div id="content" class="site-content">
+		<div class="container">

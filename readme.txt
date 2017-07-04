@@ -1,38 +1,50 @@
-=== Zack ===
+=== AtZack Unwind ===
 
-Contributors: automattic
-Tags:
+Contributors: atzack
 
-Requires at least: 4.0
-Tested up to: 4.8
-Stable tag: 1.0.0
-License: GNU General Public License v2 or later
-License URI: LICENSE
+Tags: one-column, two-columns, custom-background, custom-colors, custom-header, custom-menu, custom-logo, featured-images, full-width-template, post-formats, sticky-post, theme-options, translation-ready, blog, e-commerce
 
-A starter theme called Zack.
+Requires at least: 4.1
+Tested up to: 4.7
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Minimalist yet modern design WordPress theme. Perfect for personal blogs and e-commerce websites.
 
 == Description ==
 
-Description
+Minimalist yet modern design WordPress theme. Based on Underscore(_s) starter theme by Automattic. Support WooCommerce, Jetpack featured content with FlexSlider. Perfect for personal blogs and e-commerce websites.
 
 == Installation ==
 
-1. In your admin panel, go to Appearance > Themes and click the Add New button.
+1. Login to your WordPress installation, go to Appearance > Themes and click the Add New button.
 2. Click Upload and Choose File, then select the theme's .zip file. Click Install Now.
 3. Click Activate to use your new theme right away.
 
-== Frequently Asked Questions ==
+== Documentation & Support ==
 
-= Does this theme support any plugins? =
-
-Zack includes support for Infinite Scroll in Jetpack.
-
-== Changelog ==
-
-= 1.0 - May 12 2015 =
-* Initial release
+Please visit our website on https://atzack.com.
 
 == Credits ==
 
-* Based on Underscores http://underscores.me/, (C) 2012-2017 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
-* normalize.css http://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](http://opensource.org/licenses/MIT)
+[Underscores](http://underscores.me/)(_s) by Automattic
+
+FitVids, Copyright 2013, [Chris Coyier](http://css-tricks.com) and [Dave Rupert](http://daverupert.com)
+Licensed under the WTFPL license
+[Source](https://github.com/davatron5000/FitVids.js/)
+
+FlexSlider, Copyright 2012 WooThemes
+Free to use under the GPLv2 license
+[Source](http://www.woothemes.com/flexslider/)
+
+Normalize.css, Copyright Nicolas Gallagher and Jonathan Neal
+Licensed under the [MIT License](http://opensource.org/licenses/MIT)
+[Source](https://github.com/necolas/normalize.css/)
+
+TinyColor, Copyright (c), Brian Grinstead
+Licensed under the [MIT License](http://opensource.org/licenses/MIT)
+[Source](https://github.com/bgrins/TinyColor)
+
+[The SiteOrigin theme settings framework](https://github.com/siteorigin/settings)
+
+[Unwind](https://siteorigin.com/theme/unwind/) by SiteOrigin

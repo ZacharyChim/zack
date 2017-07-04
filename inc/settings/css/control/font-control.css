@@ -1,0 +1,23 @@
+.customize-control-atzack-font {
+  padding-bottom: 5px; }
+  .customize-control-atzack-font .font-wrapper {
+    height: 24px;
+    margin-bottom: 5px; }
+    .customize-control-atzack-font .font-wrapper select {
+      width: 100%; }
+  .customize-control-atzack-font .field-wrapper {
+    margin-bottom: 2px; }
+    .customize-control-atzack-font .field-wrapper label {
+      display: block;
+      float: left;
+      width: 25%;
+      font-size: 0.8em;
+      font-weight: bold;
+      margin-top: 7px; }
+    .customize-control-atzack-font .field-wrapper select {
+      padding: 2px;
+      font-size: 0.8em; }
+  .customize-control-atzack-font .chosen-drop {
+    z-index: 1100; }
+  .customize-control-atzack-font .chosen-container {
+    position: absolute; }
