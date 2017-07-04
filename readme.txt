@@ -1,6 +1,9 @@
-=== AtZack Unwind ===
+=== AtZack ===
 
-Contributors: atzack
+Theme Name: Zack
+Author: Zack
+Author URI: https://atzack.com/
+Theme URI: https://atzack.com/theme-zack/
 
 Tags: one-column, two-columns, custom-background, custom-colors, custom-header, custom-menu, custom-logo, featured-images, full-width-template, post-formats, sticky-post, theme-options, translation-ready, blog, e-commerce
 
