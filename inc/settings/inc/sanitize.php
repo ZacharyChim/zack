@@ -1,6 +1,6 @@
 <?php
 
-class AtZack_Settings_Sanitize {
+class ZackLive_Settings_Sanitize {
 	static function intval( $val ){
 		return intval( $val );
 	}

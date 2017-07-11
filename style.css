@@ -1,14 +1,14 @@
 /*!
 Theme Name: Zack
 Author: Zack
-Author URI: https://atzack.com/
-Theme URI: https://atzack.com/theme-zack/
-Description: Minimalist yet modern design WordPress theme. Based on Underscore(_s) starter theme by Automattic. Support WooCommerce, Jetpack featured content with FlexSlider. Perfect for personal blogs and e-commerce websites.
-Version: 1.0.0
+Author URI: https://zacklive.com/
+Theme URI: https://zacklive.com/theme-zack/
+Description: Minimalist yet modern design WordPress theme. Based on Underscore(_s) starter theme by Automattic. Support Jetpack featured content with FlexSlider. Perfect for personal blogs.
+Version: 1.0.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: zack
-Tags: one-column, two-columns, custom-background, custom-colors, custom-header, custom-menu, custom-logo, featured-images, full-width-template, sticky-post, translation-ready, blog, e-commerce
+Tags: one-column, two-columns, custom-background, custom-colors, custom-header, custom-menu, custom-logo, featured-images, full-width-template, sticky-post, translation-ready, blog
 */
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
@@ -466,43 +466,6 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
-.woocommerce #respond input#submit,
-.woocommerce a.button,
-.woocommerce button.button,
-.woocommerce #page #infinite-handle span button, #page #infinite-handle span
-.woocommerce button,
-.woocommerce input.button,
-.woocommerce.single-product .cart button {
-  background: #fff;
-  border: 2px solid;
-  border-color: #ebebeb;
-  border-radius: 0;
-  color: #2d2d2d;
-  font-family: "Lato", sans-serif;
-  font-size: 13.8656px;
-  font-size: 0.8666rem;
-  line-height: 1;
-  letter-spacing: 1.5px;
-  outline-style: none;
-  padding: 1em 1.923em;
-  transition: 0.3s;
-  text-decoration: none;
-  text-transform: uppercase; }
-  .button:hover, #page #infinite-handle span button:hover,
-  button:hover,
-  input[type="button"]:hover,
-  input[type="reset"]:hover,
-  input[type="submit"]:hover,
-  .woocommerce #respond input#submit:hover,
-  .woocommerce a.button:hover,
-  .woocommerce button.button:hover,
-  .woocommerce #page #infinite-handle span button:hover, #page #infinite-handle span
-  .woocommerce button:hover,
-  .woocommerce input.button:hover,
-  .woocommerce.single-product .cart button:hover {
-    background: #fff;
-    border-color: #24c48a;
-    color: #24c48a; }
   .button:active, #page #infinite-handle span button:active, .button:focus, #page #infinite-handle span button:focus,
   button:active,
   button:focus,
@@ -512,22 +475,6 @@ input[type="submit"],
   input[type="reset"]:focus,
   input[type="submit"]:active,
   input[type="submit"]:focus,
-  .woocommerce #respond input#submit:active,
-  .woocommerce #respond input#submit:focus,
-  .woocommerce a.button:active,
-  .woocommerce a.button:focus,
-  .woocommerce button.button:active,
-  .woocommerce #page #infinite-handle span button:active, #page #infinite-handle span
-  .woocommerce button:active,
-  .woocommerce button.button:focus,
-  .woocommerce #page #infinite-handle span button:focus, #page #infinite-handle span
-  .woocommerce button:focus,
-  .woocommerce input.button:active,
-  .woocommerce input.button:focus,
-  .woocommerce.single-product .cart button:active,
-  .woocommerce.single-product .cart button:focus {
-    border-color: #24c48a;
-    color: #24c48a; }
 
 input[type="text"],
 input[type="email"],

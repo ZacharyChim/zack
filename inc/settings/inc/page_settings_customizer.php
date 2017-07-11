@@ -1,6 +1,6 @@
 <?php
 
-class AtZack_Settings_Page_Settings_Customizer {
+class ZackLive_Settings_Page_Settings_Customizer {
 
 	function __construct(){
 		// Customizer integration
@@ -12,7 +12,7 @@ class AtZack_Settings_Page_Settings_Customizer {
 	/**
 	 * Create the singleton
 	 *
-	 * @return AtZack_Settings
+	 * @return ZackLive_Settings
 	 */
 	static function single(){
 		static $single;
@@ -30,7 +30,7 @@ class AtZack_Settings_Page_Settings_Customizer {
 	 * @param $wp_customize
 	 */
 	function customize_register( $wp_customize ){
-		if( !current_theme_supports( 'atzack-template-settings' ) ) return;
+		if( !current_theme_supports( 'zacklive-template-settings' ) ) return;
 
 		// We'll use a single panel for theme settings
 		if( method_exists($wp_customize, 'add_panel') ) {
@@ -90,14 +90,14 @@ class AtZack_Settings_Page_Settings_Customizer {
 			) );
 
 			// Now add the settings
-			$settings = AtZack_Settings_Page_Settings::single()->get_settings( $type['group'], $type['id'] );
-			$defaults = AtZack_Settings_Page_Settings::single()->get_settings_defaults( $type['group'], $type['id'] );
+			$settings = ZackLive_Settings_Page_Settings::single()->get_settings( $type['group'], $type['id'] );
+			$defaults = ZackLive_Settings_Page_Settings::single()->get_settings_defaults( $type['group'], $type['id'] );
 
 			foreach( $settings as $id => $setting ) {
 				$sanitize_callback = 'sanitize_text_field';
 				switch( $setting['type'] ) {
 					case 'checkbox':
-						$sanitize_callback = array( 'AtZack_Settings_Sanitize', 'boolean' );
+						$sanitize_callback = array( 'ZackLive_Settings_Sanitize', 'boolean' );
 						break;
 				}
 
@@ -131,13 +131,13 @@ class AtZack_Settings_Page_Settings_Customizer {
 	}
 
 	function enqueue_customizer(){
-		if( !current_theme_supports( 'atzack-template-settings' ) ) return;
+		if( !current_theme_supports( 'zacklive-template-settings' ) ) return;
 
 		wp_enqueue_script(
-			'atzack-page-template-settings',
-			get_stylesheet_directory_uri() . '/inc/settings/js/page-settings-admin' . ATZACK_THEME_JS_PREFIX . '.js',
+			'zacklive-page-template-settings',
+			get_stylesheet_directory_uri() . '/inc/settings/js/page-settings-admin' . ZACKLIVE_THEME_JS_PREFIX . '.js',
 			array( 'jquery', 'customize-controls' ),
-			ATZACK_THEME_VERSION
+			ZACKLIVE_THEME_VERSION
 		);
 	}
 
@@ -145,23 +145,23 @@ class AtZack_Settings_Page_Settings_Customizer {
 	 *
 	 */
 	function customize_enqueue_preview(){
-		if( !current_theme_supports( 'atzack-template-settings' ) ) return;
+		if( !current_theme_supports( 'zacklive-template-settings' ) ) return;
 
 		wp_enqueue_script(
-			'atzack-page-template-settings',
-			get_stylesheet_directory_uri() . '/inc/settings/js/page-settings' . ATZACK_THEME_JS_PREFIX . '.js',
+			'zacklive-page-template-settings',
+			get_stylesheet_directory_uri() . '/inc/settings/js/page-settings' . ZACKLIVE_THEME_JS_PREFIX . '.js',
 			array( 'jquery', 'customize-preview' ),
-			ATZACK_THEME_VERSION
+			ZACKLIVE_THEME_VERSION
 		);
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'customize_preview_localize' ) );
 	}
 
 	function customize_preview_localize(){
-		wp_localize_script( 'atzack-page-template-settings', 'soTemplateSettings', array(
-			'page' => AtZack_Settings_Page_Settings::get_current_page(),
+		wp_localize_script( 'zacklive-page-template-settings', 'soTemplateSettings', array(
+			'page' => ZackLive_Settings_Page_Settings::get_current_page(),
 		) );
 	}
 }
 
-AtZack_Settings_Page_Settings_Customizer::single();
+ZackLive_Settings_Page_Settings_Customizer::single();

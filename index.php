@@ -2,7 +2,7 @@
 
 	get_header();
 
-	if ( atzack_setting( 'blog_featured_slider' ) && zack_has_featured_posts() ) : ?>
+	if ( zacklive_setting( 'blog_featured_slider' ) && zack_has_featured_posts() ) : ?>
 
 		<?php get_template_part( 'template-parts/featured', 'slider' ); ?>
 

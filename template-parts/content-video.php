@@ -8,7 +8,7 @@ $post_class = ( is_singular() ) ? 'entry' : 'archive-entry';
 		<div class="entry-video">
 			<?php echo zack_get_video(); ?>
 		</div>
-	<?php elseif ( has_post_thumbnail() && atzack_setting( 'blog_featured_single' ) ) : ?>
+	<?php elseif ( has_post_thumbnail() && zacklive_setting( 'blog_featured_single' ) ) : ?>
 		<div class="entry-thumbnail">
 			<?php if ( is_singular() ) : ?>
 				<?php the_post_thumbnail(); ?>
@@ -21,7 +21,7 @@ $post_class = ( is_singular() ) ? 'entry' : 'archive-entry';
 	<?php endif; ?>
 
 	<header class="entry-header">
-			<?php if ( atzack_page_setting( 'page_title' ) ) : ?>
+			<?php if ( zacklive_page_setting( 'page_title' ) ) : ?>
 				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 			<?php endif; ?>
 		<?php else : ?>
@@ -34,7 +34,7 @@ $post_class = ( is_singular() ) ? 'entry' : 'archive-entry';
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		<?php if ( atzack_setting( 'blog_archive_content' ) == 'excerpt' && $post_class !== 'entry' ) the_excerpt();
+		<?php if ( zacklive_setting( 'blog_archive_content' ) == 'excerpt' && $post_class !== 'entry' ) the_excerpt();
 		else echo apply_filters( 'the_content', zack_filter_video( get_the_content() ) ); ?>
 		<?php
 			wp_link_pages( array(

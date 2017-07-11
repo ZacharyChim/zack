@@ -3,9 +3,9 @@
 /**
  * A basic settings class used to add settings metaboxes to pages.
  *
- * Class AtZack_Settings_Page_Settings
+ * Class ZackLive_Settings_Page_Settings
  */
-class AtZack_Settings_Page_Settings {
+class ZackLive_Settings_Page_Settings {
 	private $meta;
 
 	function __construct(){
@@ -19,14 +19,14 @@ class AtZack_Settings_Page_Settings {
 
 		if( is_admin() || is_customize_preview() ) {
 			// Initialize Page Settings Customizer if we're in the admin.
-			AtZack_Settings_Page_Settings_Customizer::single();
+			ZackLive_Settings_Page_Settings_Customizer::single();
 		}
 	}
 
 	/**
 	 * Get the singular instance
 	 *
-	 * @return AtZack_Settings_Page_Settings
+	 * @return ZackLive_Settings_Page_Settings
 	 */
 	static function single(){
 		static $single;
@@ -69,7 +69,7 @@ class AtZack_Settings_Page_Settings {
 	}
 
 	function get_settings( $type, $id ) {
-		return apply_filters( 'atzack_page_settings', array(), $type, $id );
+		return apply_filters( 'zacklive_page_settings', array(), $type, $id );
 	}
 
 	function add_page_settings_support(){
@@ -78,7 +78,7 @@ class AtZack_Settings_Page_Settings {
 	}
 
 	function get_settings_defaults( $type, $id ){
-		return apply_filters( 'atzack_page_settings_defaults', array(), $type, $id );
+		return apply_filters( 'zacklive_page_settings_defaults', array(), $type, $id );
 	}
 
 	static function get_current_page(){
@@ -146,7 +146,7 @@ class AtZack_Settings_Page_Settings {
 
 		switch( $type ) {
 			case 'post':
-				$values = get_post_meta( $id, 'atzack_page_settings', true );
+				$values = get_post_meta( $id, 'zacklive_page_settings', true );
 				break;
 
 			default:
@@ -155,7 +155,7 @@ class AtZack_Settings_Page_Settings {
 		}
 
 		if( empty($values) ) $values = array();
-		$values = apply_filters( 'atzack_page_settings_values', $values, $type, $id );
+		$values = apply_filters( 'zacklive_page_settings_values', $values, $type, $id );
 
 		return wp_parse_args( $values, $defaults );
 	}
@@ -169,7 +169,7 @@ class AtZack_Settings_Page_Settings {
 
 		if( !empty( $post_type ) && post_type_supports( $post_type, 'so-page-settings' ) ) {
 			add_meta_box(
-				'atzack_page_settings',
+				'zacklive_page_settings',
 				__( 'Page settings', 'zack' ),
 				array( $this, 'display_post_meta_box' ),
 				$post_type,
@@ -185,7 +185,7 @@ class AtZack_Settings_Page_Settings {
 		$settings = $this->get_settings( 'post', $post->ID );
 		$values = $this->get_settings_values( 'post', $post->ID );
 
-		do_action( 'atzack_settings_before_page_settings_meta_box', $post );
+		do_action( 'zacklive_settings_before_page_settings_meta_box', $post );
 
 		foreach( $settings as $id => $field ) {
 			if( empty($values[$id]) ) $values[$id] = false;
@@ -225,7 +225,7 @@ class AtZack_Settings_Page_Settings {
 
 		wp_nonce_field( 'save_page_settings', '_so_page_settings_nonce' );
 
-		do_action( 'atzack_settings_after_page_settings_meta_box', $post );
+		do_action( 'zacklive_settings_after_page_settings_meta_box', $post );
 	}
 
 	/**
@@ -259,7 +259,7 @@ class AtZack_Settings_Page_Settings {
 			}
 		}
 
-		update_post_meta( $post_id, 'atzack_page_settings', $settings );
+		update_post_meta( $post_id, 'zacklive_page_settings', $settings );
 	}
 
 	/**
@@ -267,13 +267,13 @@ class AtZack_Settings_Page_Settings {
 	 */
 	function panels_save_home_page( $post_id ){
 		$settings = $this->get_settings_values( 'post', $post_id );
-		$settings = apply_filters( 'atzack_page_settings_panels_home_defaults', $settings );
-		update_post_meta( $post_id, 'atzack_page_settings', $settings );
+		$settings = apply_filters( 'zacklive_page_settings_panels_home_defaults', $settings );
+		update_post_meta( $post_id, 'zacklive_page_settings', $settings );
 	}
 
 }
-AtZack_Settings_Page_Settings::single();
+ZackLive_Settings_Page_Settings::single();
 
-function atzack_page_setting( $setting = false, $default = false ) {
-	return AtZack_Settings_Page_Settings::single()->get( $setting, $default );
+function zacklive_page_setting( $setting = false, $default = false ) {
+	return ZackLive_Settings_Page_Settings::single()->get( $setting, $default );
 }

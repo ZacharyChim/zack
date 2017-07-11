@@ -10,7 +10,7 @@
 /**
  * This is a very simple color conversion class. It just offers some static function for conversions.
  */
-class AtZack_Settings_Color {
+class ZackLive_Settings_Color {
 	/**
 	 * @param mixed $input A color representation.
 	 *

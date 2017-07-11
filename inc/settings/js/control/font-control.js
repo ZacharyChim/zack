@@ -8,7 +8,7 @@
     /**
      * The font control object
      */
-    api.controlConstructor['atzack-font'] = api.Control.extend( {
+    api.controlConstructor['zacklive-font'] = api.Control.extend( {
         ready: function(){
             var control = this;
 

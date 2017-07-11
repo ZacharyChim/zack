@@ -2,21 +2,21 @@
 
 Theme Name: Zack
 Author: Zack
-Author URI: https://atzack.com/
-Theme URI: https://atzack.com/theme-zack/
+Author URI: https://zacklive.com/
+Theme URI: https://zacklive.com/theme-zack/
 
-Tags: one-column, two-columns, custom-background, custom-colors, custom-header, custom-menu, custom-logo, featured-images, full-width-template, post-formats, sticky-post, theme-options, translation-ready, blog, e-commerce
+Tags: one-column, two-columns, custom-background, custom-colors, custom-header, custom-menu, custom-logo, featured-images, full-width-template, post-formats, sticky-post, theme-options, translation-ready, blog
 
 Requires at least: 4.1
 Tested up to: 4.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Minimalist yet modern design WordPress theme. Perfect for personal blogs and e-commerce websites.
+Minimalist yet modern design WordPress theme. Perfect for personal blogs.
 
 == Description ==
 
-Minimalist yet modern design WordPress theme. Based on Underscore(_s) starter theme by Automattic. Support WooCommerce, Jetpack featured content with FlexSlider. Perfect for personal blogs and e-commerce websites.
+Minimalist yet modern design WordPress theme. Based on Underscore(_s) starter theme by Automattic. Support Jetpack featured content with FlexSlider. Perfect for personal blogs and e-commerce websites.
 
 == Installation ==
 
@@ -26,7 +26,7 @@ Minimalist yet modern design WordPress theme. Based on Underscore(_s) starter th
 
 == Documentation & Support ==
 
-Please visit our website on https://atzack.com.
+Please visit our website on https://zacklive.com.
 
 == Credits ==
 

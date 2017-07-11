@@ -12,13 +12,13 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'zack' ); ?></a>
 
-	<?php if ( atzack_page_setting( 'display_masthead', true ) ) : ?>
+	<?php if ( zacklive_page_setting( 'display_masthead', true ) ) : ?>
 		<header id="masthead" class="site-header" role="banner">
-			<div class="main-navigation-bar sticky-bar <?php if ( atzack_setting( 'navigation_sticky' ) ) echo 'sticky-menu'; ?>">
+			<div class="main-navigation-bar sticky-bar <?php if ( zacklive_setting( 'navigation_sticky' ) ) echo 'sticky-menu'; ?>">
 			    <div class="container">
 			        <div class="site-branding">
 			            <?php zack_display_logo(); ?>
-			            <?php if ( atzack_setting( 'branding_site_description' ) ) : ?>
+			            <?php if ( zacklive_setting( 'branding_site_description' ) ) : ?>
 			                <p class="site-description"><?php bloginfo( 'description' ); ?></p>
 			            <?php endif ?>
 			        </div><!-- .site-branding -->

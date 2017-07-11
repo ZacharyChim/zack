@@ -1,7 +1,7 @@
 <?php
 if ( ! function_exists( 'zack_archive_title' ) ) :
 function zack_archive_title() {
-	if ( atzack_page_setting( 'page_title' ) ) : ?>
+	if ( zacklive_page_setting( 'page_title' ) ) : ?>
 		<header class="page-header">
 			<?php
 				the_archive_title( '<h1 class="page-title"><span class="page-title-text">', '</span></h1>' );
@@ -92,7 +92,7 @@ endif;
 
 if ( ! function_exists( 'zack_display_logo' ) ) :
 function zack_display_logo() {
-	$logo = atzack_setting( 'branding_logo' );
+	$logo = zacklive_setting( 'branding_logo' );
 	if ( ! empty( $logo ) ) {
 		$attrs = apply_filters( 'zack_logo_attributes', array() );
 
@@ -115,8 +115,8 @@ function zack_display_logo() {
 endif;
 
 function zack_display_retina_logo( $attr ){
-	$logo = atzack_setting( 'branding_logo' );
-	$retina = atzack_setting( 'branding_retina_logo' );
+	$logo = zacklive_setting( 'branding_logo' );
+	$retina = zacklive_setting( 'branding_retina_logo' );
 
 	if( !empty( $retina ) ) {
 
@@ -145,7 +145,7 @@ add_filter( 'zack_logo_attributes', 'zack_display_retina_logo', 10, 1 );
 
 if ( ! function_exists( 'zack_entry_footer' ) ) :
 function zack_entry_footer() {
-	if ( 'post' === get_post_type() && atzack_setting( 'blog_display_tags' ) ) { ?>
+	if ( 'post' === get_post_type() && zacklive_setting( 'blog_display_tags' ) ) { ?>
 		<span class="tags-list"><?php the_tags('', '', ''); ?></span>
 	<?php }
 
@@ -180,7 +180,7 @@ function zack_has_featured_posts( $minimum = 1 ) {
 
 if ( ! function_exists( 'zack_footer_text' ) ) :
 function zack_footer_text() {
-	$text = atzack_setting( 'footer_text' );
+	$text = zacklive_setting( 'footer_text' );
 	$text = str_replace(
 		array( '{sitename}', '{year}' ),
 		array( get_bloginfo( 'sitename' ), date( 'Y' ) ),
@@ -201,7 +201,7 @@ add_filter( 'the_content_more_link', 'zack_read_more_link' );
 if ( ! function_exists( 'zack_excerpt_more' ) ) :
 function zack_excerpt_more( $more ) {
 	if ( is_search() ) return;
-	if ( atzack_setting( 'blog_archive_content' ) == 'excerpt' && atzack_setting( 'blog_excerpt_more', true ) ) {
+	if ( zacklive_setting( 'blog_archive_content' ) == 'excerpt' && zacklive_setting( 'blog_excerpt_more', true ) ) {
 		$read_more_text = esc_html__( 'Read More', 'zack' );
 		return '<a class="more-link" href="' . get_permalink() . '"><span class="more-text">' . $read_more_text . '</a></span>';
 	}
@@ -230,7 +230,7 @@ function zack_post_meta() {
 		echo '<span class="featured-post">' . esc_html__( 'Sticky', 'zack' ) . '</span>';
 	} ?>
 
-	<?php if ( atzack_setting( 'blog_display_date' ) ) { ?>
+	<?php if ( zacklive_setting( 'blog_display_date' ) ) { ?>
 		<span class="entry-date">
 			<?php echo ( ! is_singular() ) ? '<a href="' . get_the_permalink() . '" title="' . the_title_attribute( 'echo=0' ) .'">' : ''; ?>
 				<?php the_time( apply_filters( 'zack_date_format', 'M d, Y' ) ); ?>
@@ -239,11 +239,11 @@ function zack_post_meta() {
 	<?php } ?>
 
 
-	<?php if ( $categories_list && zack_categorized_blog() && atzack_setting( 'blog_display_category' ) ) {
+	<?php if ( $categories_list && zack_categorized_blog() && zacklive_setting( 'blog_display_category' ) ) {
 		printf( '<span class="entry-category">' . esc_html__( '%1$s', 'zack' ) . '</span>', $categories_list );
 	} ?>
 
-	<?php if ( $comments && atzack_setting( 'blog_display_comments' ) ) {
+	<?php if ( $comments && zacklive_setting( 'blog_display_comments' ) ) {
 		echo '<span class="entry-comments"><a href="' . get_comments_link() .'">'. $comments.'</a></span>';
 	} ?>
 
@@ -354,7 +354,7 @@ add_filter( 'widget_tag_cloud_args', 'zack_tag_cloud' );
 if ( ! function_exists( 'zack_custom_icon' ) ):
 function zack_custom_icon( $icon, $class ) {
 
-	$id = atzack_setting( $icon );
+	$id = zacklive_setting( $icon );
 	$url = wp_get_attachment_url( $id );
 	$filetype = wp_check_filetype( $url );
 	$extension = $filetype['ext'];
@@ -378,7 +378,7 @@ function zack_display_icon( $type ) {
 
 	switch( $type ) {
 		case 'search' :
-			if ( atzack_setting( 'icons_search' ) ): ?>
+			if ( zacklive_setting( 'icons_search' ) ): ?>
 				<?php zack_custom_icon( 'icons_search', 'svg-icon-search' ); ?>
 			<?php else : ?>
 				<svg version="1.1" class="svg-icon-search" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
@@ -388,7 +388,7 @@ function zack_display_icon( $type ) {
 			break;
 
 		case 'close' :
-			if ( atzack_setting( 'icons_close_search' ) ): ?>
+			if ( zacklive_setting( 'icons_close_search' ) ): ?>
 				<?php zack_custom_icon( 'icons_close_search', 'svg-icon-close' ); ?>
 			<?php else : ?>
 				<svg version="1.1" class="svg-icon-close" xmlns="http://www.w3.org/2000/svg" width="15.56" height="15.562" viewBox="0 0 15.56 15.562">
@@ -398,7 +398,7 @@ function zack_display_icon( $type ) {
 			break;
 
 		case 'menu':
-			if ( atzack_setting( 'icons_menu' ) ): ?>
+			if ( zacklive_setting( 'icons_menu' ) ): ?>
 				<?php zack_custom_icon( 'icons_menu', 'svg-icon-menu' ); ?>
 			<?php else : ?>
 				<svg version="1.1" class="svg-icon-menu" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27" height="32" viewBox="0 0 27 32">

@@ -18,5 +18,5 @@
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php if ( in_array( AtZack_Settings_Page_Settings::get( 'layout' ), array( 'default', 'full-width-sidebar' ), true )  ) get_sidebar();
+<?php if ( in_array( ZackLive_Settings_Page_Settings::get( 'layout' ), array( 'default', 'full-width-sidebar' ), true )  ) get_sidebar();
 get_footer();

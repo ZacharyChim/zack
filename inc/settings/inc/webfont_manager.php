@@ -1,7 +1,7 @@
 <?php
 
 
-class AtZack_Settings_Webfont_Manager {
+class ZackLive_Settings_Webfont_Manager {
 
 	private $fonts;
 
@@ -15,7 +15,7 @@ class AtZack_Settings_Webfont_Manager {
 		static $single;
 
 		if( empty($single) ) {
-			$single = new AtZack_Settings_Webfont_Manager();
+			$single = new ZackLive_Settings_Webfont_Manager();
 		}
 		return $single;
 	}
@@ -35,9 +35,9 @@ class AtZack_Settings_Webfont_Manager {
 	}
 
 	function enqueue() {
-		$default_font_settings = apply_filters( 'atzack_settings_font_settings', array() );
+		$default_font_settings = apply_filters( 'zacklive_settings_font_settings', array() );
 		if( !empty($default_font_settings) ) {
-			$settings = AtZack_Settings::single();
+			$settings = ZackLive_Settings::single();
 			foreach( $default_font_settings as $setting => $webfont ) {
 				$value = json_decode( $settings->get( $setting ), true );
 
@@ -62,10 +62,10 @@ class AtZack_Settings_Webfont_Manager {
 		}
 
 		wp_enqueue_style(
-			'atzack-google-web-fonts',
+			'zacklive-google-web-fonts',
 			add_query_arg('family', implode( '|', $family ), '//fonts.googleapis.com/css')
 		);
 	}
 
 }
-AtZack_Settings_Webfont_Manager::single();
+ZackLive_Settings_Webfont_Manager::single();

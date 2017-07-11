@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-	<?php if ( atzack_page_setting( 'page_title' ) ) : ?>
+	<?php if ( zacklive_page_setting( 'page_title' ) ) : ?>
 		<header class="page-header">
 			<h1 class="page-title"><span class="page-title-text"><?php printf( esc_html__( 'Search Results: %s', 'zack' ), get_search_query() ); ?></span></h1>
 		</header><!-- .page-header -->

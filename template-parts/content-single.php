@@ -1,12 +1,12 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?>>
-	<?php if ( has_post_thumbnail() && atzack_setting( 'blog_featured_single' ) ) : ?>
+	<?php if ( has_post_thumbnail() && zacklive_setting( 'blog_featured_single' ) ) : ?>
 		<div class="entry-thumbnail">
 			<?php the_post_thumbnail( 'post-thumbnail', array( 'class' => 'aligncenter' ) ) ?>
 		</div>
 	<?php endif; ?>
 
 	<header class="entry-header">
-		<?php if ( atzack_page_setting( 'page_title' ) ) : ?>
+		<?php if ( zacklive_page_setting( 'page_title' ) ) : ?>
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		<?php endif; ?>
 		<div class="entry-meta">

@@ -1,6 +1,6 @@
 ( function( api, $ ) {
 
-	api.controlConstructor['atzack-measurement'] = api.Control.extend( {
+	api.controlConstructor['zacklive-measurement'] = api.Control.extend( {
 		ready: function () {
 			var control = this;
 			var container = control.container;

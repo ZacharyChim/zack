@@ -3,11 +3,11 @@
 /**
  * A color conversions class. Of course, you really spell it colour. Color conversion based on algorithms form EasyRGB <http://www.easyrgb.com/>.
  *
- * @author Greg Priday <greg@atzack.com>
+ * @author Greg Priday <greg@zacklive.com>
  * @copyright Copyright (c) 2011, Greg Priday
  * @license GPL <http://www.gnu.org/copyleft/gpl.html>
  */
-class AtZack_Settings_Color_Object extends AtZack_Settings_Color{
+class ZackLive_Settings_Color_Object extends ZackLive_Settings_Color{
 	private $changed;
 
 	/**
@@ -151,7 +151,7 @@ class AtZack_Settings_Color_Object extends AtZack_Settings_Color{
 	 *
 	 * @return float Distance between the 2 colors
 	 */
-	public static function distance(AtZack_Settings_Color_Object $c1, AtZack_Settings_Color_Object $c2){
+	public static function distance(ZackLive_Settings_Color_Object $c1, ZackLive_Settings_Color_Object $c2){
 		return sqrt(
 			pow($c1->lab[0]-$c2->lab[0],2) +
 			pow($c1->lab[1]-$c2->lab[1],2) +

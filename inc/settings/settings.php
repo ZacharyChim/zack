@@ -1,11 +1,11 @@
 <?php
 
 /**
-* Class AtZack_Settings
+* Class ZackLive_Settings
  *
  * A simple settings framework that works with the customizer in magical ways.
 */
-class AtZack_Settings {
+class ZackLive_Settings {
 
 	/**
 	 * @var array Default setting values
@@ -36,7 +36,7 @@ class AtZack_Settings {
 		$this->loc = array();
 
 		if( !empty( $_POST['wp_customize'] ) && $_POST['wp_customize'] == 'on' && is_customize_preview() ) {
-			add_filter( 'atzack_setting', array( $this, 'customizer_filter' ), 15, 2 );
+			add_filter( 'zacklive_setting', array( $this, 'customizer_filter' ), 15, 2 );
 		}
 
 		add_action( 'after_setup_theme', array( $this, 'load_settings_extras' ) );
@@ -48,7 +48,7 @@ class AtZack_Settings {
 	/**
 	 * Create the singleton
 	 *
-	 * @return AtZack_Settings
+	 * @return ZackLive_Settings
 	 */
 	static function single(){
 		static $single;
@@ -56,12 +56,12 @@ class AtZack_Settings {
 	}
 
 	function _autoload( $class_name ){
-		if( strpos( $class_name, 'AtZack_Settings_Control_' ) === 0 ) {
-			$file = strtolower( str_replace( 'AtZack_Settings_Control_', '', $class_name ) );
+		if( strpos( $class_name, 'ZackLive_Settings_Control_' ) === 0 ) {
+			$file = strtolower( str_replace( 'ZackLive_Settings_Control_', '', $class_name ) );
 			include( dirname( __FILE__ ) . '/inc/control/' . $file . '.php' );
 		}
-		elseif ( strpos( $class_name, 'AtZack_Settings_' ) === 0 ) {
-			$file = strtolower( str_replace( 'AtZack_Settings_', '', $class_name ) );
+		elseif ( strpos( $class_name, 'ZackLive_Settings_' ) === 0 ) {
+			$file = strtolower( str_replace( 'ZackLive_Settings_', '', $class_name ) );
 			include( dirname( __FILE__ ) . '/inc/' . $file . '.php' );
 		}
 	}
@@ -87,14 +87,14 @@ class AtZack_Settings {
 		}
 
 		// Handle setting migration
-		return apply_filters( 'atzack_setting', get_theme_mod( 'theme_settings_' . $setting, $default ), $setting );
+		return apply_filters( 'zacklive_setting', get_theme_mod( 'theme_settings_' . $setting, $default ), $setting );
 	}
 
 	/**
 	 * Handle migration of settings from one key to another
 	 */
 	function handle_migrations(){
-		$migrations = apply_filters( 'atzack_settings_migrated_settings', array(  ) );
+		$migrations = apply_filters( 'zacklive_settings_migrated_settings', array(  ) );
 		if( empty( $migrations ) ) return;
 
 		$migration_key = md5( serialize( $migrations ) );
@@ -113,7 +113,7 @@ class AtZack_Settings {
 	}
 
 	/**
-	 * Filter AtZack settings based on customizer values. Gets around early use of setting values in customizer preview.
+	 * Filter ZackLive settings based on customizer values. Gets around early use of setting values in customizer preview.
 	 *
 	 * @param $value
 	 * @param $setting
@@ -213,7 +213,7 @@ class AtZack_Settings {
 	function init(){
 		$theme = wp_get_theme();
 		$this->theme_name = $theme->get_template();
-		$this->defaults = apply_filters( 'atzack_settings_defaults', $this->defaults );
+		$this->defaults = apply_filters( 'zacklive_settings_defaults', $this->defaults );
 	}
 
 	/**
@@ -374,21 +374,21 @@ class AtZack_Settings {
 	static $control_classes = array(
 		'media' => 'WP_Customize_Media_Control',
 		'color' => 'WP_Customize_Color_Control',
-		'teaser' => 'AtZack_Settings_Control_Teaser',
-		'image_select' => 'AtZack_Settings_Control_Image_Select',
-		'font' => 'AtZack_Settings_Control_Font',
-		'widget' => 'AtZack_Settings_Control_Widget',
-		'measurement' => 'AtZack_Settings_Control_Measurement',
+		'teaser' => 'ZackLive_Settings_Control_Teaser',
+		'image_select' => 'ZackLive_Settings_Control_Image_Select',
+		'font' => 'ZackLive_Settings_Control_Font',
+		'widget' => 'ZackLive_Settings_Control_Widget',
+		'measurement' => 'ZackLive_Settings_Control_Measurement',
 	);
 
 	static $sanitize_callbacks = array(
 		'url' => 'esc_url_raw',
 		'color' => 'sanitize_hex_color',
-		'media' => array( 'AtZack_Settings_Sanitize', 'intval' ),
-		'checkbox' => array( 'AtZack_Settings_Sanitize', 'boolean' ),
-		'range' => array( 'AtZack_Settings_Sanitize', 'floatval' ),
-		'widget' => array( 'AtZack_Settings_Sanitize', 'widget' ),
-		'measurement' => array( 'AtZack_Settings_Control_Measurement', 'sanitize_value' ),
+		'media' => array( 'ZackLive_Settings_Sanitize', 'intval' ),
+		'checkbox' => array( 'ZackLive_Settings_Sanitize', 'boolean' ),
+		'range' => array( 'ZackLive_Settings_Sanitize', 'floatval' ),
+		'widget' => array( 'ZackLive_Settings_Sanitize', 'widget' ),
+		'measurement' => array( 'ZackLive_Settings_Control_Measurement', 'sanitize_value' ),
 	);
 
 	/**
@@ -398,8 +398,8 @@ class AtZack_Settings {
 	 */
 	function customize_register( $wp_customize ){
 		// Let everything setup the settings
-		if( !did_action( 'atzack_settings_init' ) ) {
-			do_action( 'atzack_settings_init' );
+		if( !did_action( 'zacklive_settings_init' ) ) {
+			do_action( 'zacklive_settings_init' );
 		}
 
 		// We'll use a single panel for theme settings
@@ -478,7 +478,7 @@ class AtZack_Settings {
 					}
 
 					if( $setting_args['type'] == 'text' && ! empty( $control_args['choices'] ) ) {
-						$control_class = 'AtZack_Settings_Control_Text_Select';
+						$control_class = 'ZackLive_Settings_Control_Text_Select';
 					}
 				}
 
@@ -536,8 +536,8 @@ class AtZack_Settings {
 	 * Enqueue everything necessary for the live previewing in the Customizer
 	 */
 	function enqueue_preview(){
-		if( !did_action('atzack_settings_init') ) {
-			do_action('atzack_settings_init');
+		if( !did_action('zacklive_settings_init') ) {
+			do_action('zacklive_settings_init');
 		}
 
 		$values = array();
@@ -547,10 +547,10 @@ class AtZack_Settings {
 			}
 		}
 
-		wp_enqueue_script( 'atzack-settings-tinycolor', get_stylesheet_directory_uri() . '/inc/settings/js/tinycolor' . ATZACK_THEME_JS_PREFIX . '.js', array(), ATZACK_THEME_VERSION );
-		wp_enqueue_script( 'atzack-settings-live-preview', get_stylesheet_directory_uri() . '/inc/settings/js/live' . ATZACK_THEME_JS_PREFIX . '.js', array('jquery'), ATZACK_THEME_VERSION );
-		wp_localize_script( 'atzack-settings-live-preview', 'soSettings', array(
-			'css' => apply_filters( 'atzack_settings_custom_css', '', $this->get_all( ) ),
+		wp_enqueue_script( 'zacklive-settings-tinycolor', get_stylesheet_directory_uri() . '/inc/settings/js/tinycolor' . ZACKLIVE_THEME_JS_PREFIX . '.js', array(), ZACKLIVE_THEME_VERSION );
+		wp_enqueue_script( 'zacklive-settings-live-preview', get_stylesheet_directory_uri() . '/inc/settings/js/live' . ZACKLIVE_THEME_JS_PREFIX . '.js', array('jquery'), ZACKLIVE_THEME_VERSION );
+		wp_localize_script( 'zacklive-settings-live-preview', 'soSettings', array(
+			'css' => apply_filters( 'zacklive_settings_custom_css', '', $this->get_all( ) ),
 			'settings' => !empty($values) ? $values : false
 		) );
 	}
@@ -560,7 +560,7 @@ class AtZack_Settings {
 	 */
 	function display_custom_css(){
 		$settings = $this->get_all( );
-		$css = apply_filters( 'atzack_settings_custom_css', '', $settings );
+		$css = apply_filters( 'zacklive_settings_custom_css', '', $settings );
 
 		if( !empty($css) ) {
 
@@ -659,7 +659,7 @@ class AtZack_Settings {
 
 			if( !empty($css) ) {
 				?>
-				<style type="text/css" id="<?php echo esc_attr($this->theme_name) ?>-settings-custom" data-atzack-settings="true">
+				<style type="text/css" id="<?php echo esc_attr($this->theme_name) ?>-settings-custom" data-zacklive-settings="true">
 					<?php echo strip_tags($css) ?>
 				</style>
 				<?php
@@ -679,7 +679,7 @@ class AtZack_Settings {
 
 		if( $function == 'single' ) return '';
 
-		$css_functions = AtZack_Settings_CSS_Functions::single();
+		$css_functions = ZackLive_Settings_CSS_Functions::single();
 		if( method_exists( $css_functions, $function ) ) {
 			return $css_functions->$function( $match );
 		}
@@ -734,7 +734,7 @@ class AtZack_Settings {
 	static function get_image_id( $image_url ){
 		if( empty( $image_url ) ) return false;
 
-		$attachment_id = wp_cache_get( $image_url, 'atzack_image_id' );
+		$attachment_id = wp_cache_get( $image_url, 'zacklive_image_id' );
 
 		if( $attachment_id === false ) {
 			global $wpdb;
@@ -742,7 +742,7 @@ class AtZack_Settings {
 				$wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE guid='%s';", $image_url )
 			);
 			$attachment_id = !empty($attachment[0]) ? $attachment[0] : 0;
-			wp_cache_set( $image_url, $attachment_id, 'atzack_image_id', 86400 );
+			wp_cache_set( $image_url, $attachment_id, 'zacklive_image_id', 86400 );
 		}
 
 		return $attachment_id;
@@ -752,18 +752,18 @@ class AtZack_Settings {
 	 * Load all the extra components of the settings framework.
 	 */
 	function load_settings_extras(){
-		if( has_filter( 'atzack_page_settings' ) ) {
-			AtZack_Settings_Page_Settings::single();
+		if( has_filter( 'zacklive_page_settings' ) ) {
+			ZackLive_Settings_Page_Settings::single();
 		}
 
-		if( has_filter( 'atzack_settings_font_settings' ) ) {
-			AtZack_Settings_Webfont_Manager::single();
+		if( has_filter( 'zacklive_settings_font_settings' ) ) {
+			ZackLive_Settings_Webfont_Manager::single();
 		}
 	}
 }
 
 // Setup the single
-AtZack_Settings::single();
+ZackLive_Settings::single();
 
 /**
  * Access a single setting
@@ -772,8 +772,8 @@ AtZack_Settings::single();
  *
  * @return mixed The setting value
  */
-function atzack_setting( $setting ){
-	return AtZack_Settings::single()->get( $setting );
+function zacklive_setting( $setting ){
+	return ZackLive_Settings::single()->get( $setting );
 }
 
 /**
@@ -782,6 +782,6 @@ function atzack_setting( $setting ){
  * @param $setting
  * @param $value
  */
-function atzack_settings_set( $setting, $value ){
-	AtZack_Settings::single()->set( $setting, $value );
+function zacklive_settings_set( $setting, $value ){
+	ZackLive_Settings::single()->set( $setting, $value );
 }

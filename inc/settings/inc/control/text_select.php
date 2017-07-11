@@ -1,7 +1,7 @@
 <?php
 
-class AtZack_Settings_Control_Text_Select extends WP_Customize_Control {
-	public $type = 'atzack-text-select';
+class ZackLive_Settings_Control_Text_Select extends WP_Customize_Control {
+	public $type = 'zacklive-text-select';
 	public $choices;
 
 	function render_content() {
@@ -26,6 +26,6 @@ class AtZack_Settings_Control_Text_Select extends WP_Customize_Control {
 	}
 
 	public function enqueue() {
-		wp_enqueue_script( 'atzack-settings-text-select-control', get_template_directory_uri() . '/inc/settings/js/control/text-select-control' . ATZACK_THEME_JS_PREFIX . '.js', array( 'jquery', 'customize-controls' ) );
+		wp_enqueue_script( 'zacklive-settings-text-select-control', get_template_directory_uri() . '/inc/settings/js/control/text-select-control' . ZACKLIVE_THEME_JS_PREFIX . '.js', array( 'jquery', 'customize-controls' ) );
 	}
 }

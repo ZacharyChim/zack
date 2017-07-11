@@ -36,7 +36,7 @@ jQuery( function( $ ) {
 	} );
 
     if ( typeof $.fn.fitVids !== 'undefined' ) {
-        $( '.entry-content, .entry-content .panel, .entry-video, .woocommerce #main' ).fitVids( { ignore: '.tableauViz' } );
+        $( '.entry-content, .entry-content .panel, .entry-video' ).fitVids( { ignore: '.tableauViz' } );
     }
 
 	var $mobileMenu = false;

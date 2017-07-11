@@ -1,2 +1,5 @@
+= 1.0.1 - 10 July 2017 =
+Remove the support for WooCommerce.
+
 = 1.0.0 - 03 July 2017 =
 Init

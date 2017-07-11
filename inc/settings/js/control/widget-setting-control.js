@@ -3,7 +3,7 @@
 
 ( function( api, $, _ ) {
 
-	api.controlConstructor['atzack-widget-setting'] = api.Control.extend( {
+	api.controlConstructor['zacklive-widget-setting'] = api.Control.extend( {
 		ready: function () {
 			var control = this;
 			var container = control.container;
@@ -13,7 +13,7 @@
 			container.find('.so-edit-widget, .so-widget-form .so-widget-close').click( function( e ){
 				e.preventDefault();
 
-				// We can show a modal here at some point, for now we just direct users to AtZack
+				// We can show a modal here at some point, for now we just direct users to ZackLive
 				container.find( '.so-widget-form' ).toggle();
 
 				if( ! container.find( '.so-widget-form' ).is(':visible') ) {
@@ -27,7 +27,7 @@
 			var widgetValues;
 
 			try {
-				widgetValues = formValues['atzack_settings_widget'][1];
+				widgetValues = formValues['zacklive_settings_widget'][1];
 			}
 			catch ( e ) {
 				widgetValues = {};

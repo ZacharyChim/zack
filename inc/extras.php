@@ -18,7 +18,7 @@ function zack_body_classes( $classes ) {
 	}
 	add_action( 'wp_head', 'zack_pingback_header' );
 
-	if ( is_home() && atzack_setting( 'blog_featured_slider' ) && zack_has_featured_posts() ) {
+	if ( is_home() && zacklive_setting( 'blog_featured_slider' ) && zack_has_featured_posts() ) {
 		$classes[] = 'homepage-has-slider';
 	}
 
@@ -31,11 +31,8 @@ function zack_body_classes( $classes ) {
 	if ( ! is_active_sidebar( 'main-sidebar' ) ) {
 		$classes[] = 'no-active-sidebar';
 	}
-	if ( function_exists( 'is_woocommerce' ) && ! is_active_sidebar( 'shop-sidebar' ) ) {
-		$classes[] = 'no-active-wc-sidebar';
-	}
 
-	$page_settings = atzack_page_setting();
+	$page_settings = zacklive_page_setting();
 
 	if ( ! empty( $page_settings ) ) {
 		if ( ! empty( $page_settings['layout'] ) ) $classes[] = 'page-layout-' . $page_settings['layout'];
@@ -45,20 +42,12 @@ function zack_body_classes( $classes ) {
 		if ( empty( $page_settings['footer_widgets'] ) ) $classes[] = 'page-layout-hide-footer-widgets';
 	}
 
-	if ( atzack_setting( 'navigation_sticky' ) ) {
+	if ( zacklive_setting( 'navigation_sticky' ) ) {
 		$classes[] = 'sticky-menu';
 	}
 
-	if ( atzack_setting( 'layout_main_sidebar' ) == 'left' && is_active_sidebar( 'main-sidebar' ) ) {
+	if ( zacklive_setting( 'layout_main_sidebar' ) == 'left' && is_active_sidebar( 'main-sidebar' ) ) {
 		$classes[] = 'main-sidebar-left';
-	}
-
-	if ( function_exists( 'is_woocommerce' ) && atzack_setting( 'woocommerce_shop_sidebar' ) == 'right' && is_active_sidebar( 'shop-sidebar' ) ) {
-		$classes[] = 'shop-sidebar-right';
-	}
-
-	if ( atzack_setting( 'woocommerce_archive_columns' ) ) {
-		$classes[] = 'wc-columns-' . atzack_setting( 'woocommerce_archive_columns' );
 	}
 
 	return $classes;

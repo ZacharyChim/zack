@@ -1,8 +1,8 @@
 <?php
 
-class AtZack_Settings_Control_Measurement extends WP_Customize_Control {
+class ZackLive_Settings_Control_Measurement extends WP_Customize_Control {
 
-	public $type = 'atzack-measurement';
+	public $type = 'zacklive-measurement';
 
 	static $measurements = array(
 		'px',
@@ -57,8 +57,8 @@ class AtZack_Settings_Control_Measurement extends WP_Customize_Control {
 	}
 
 	public function enqueue() {
-		wp_enqueue_script( 'atzack-settings-measurement-control', get_template_directory_uri() . '/inc/settings/js/control/measurement-control' . ATZACK_THEME_JS_PREFIX . '.js', array( 'jquery', 'customize-controls' ) );
-		wp_enqueue_style( 'atzack-settings-measurement-control', get_template_directory_uri() . '/inc/settings/css/control/measurement-control.css', array() );
+		wp_enqueue_script( 'zacklive-settings-measurement-control', get_template_directory_uri() . '/inc/settings/js/control/measurement-control' . ZACKLIVE_THEME_JS_PREFIX . '.js', array( 'jquery', 'customize-controls' ) );
+		wp_enqueue_style( 'zacklive-settings-measurement-control', get_template_directory_uri() . '/inc/settings/css/control/measurement-control.css', array() );
 	}
 
 }

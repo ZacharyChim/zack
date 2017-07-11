@@ -1,6 +1,6 @@
 ( function( api, $ ) {
 
-	api.controlConstructor['atzack-text-select'] = api.Control.extend({
+	api.controlConstructor['zacklive-text-select'] = api.Control.extend({
 		ready: function () {
 			var control = this;
 			var container = control.container;

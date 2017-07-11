@@ -1,6 +1,6 @@
 <?php
-define('ATZACK_THEME_VERSION', '1.0.13');
-define('ATZACK_THEME_JS_PREFIX', '.min');
+define('ZACKLIVE_THEME_VERSION', '1.0.1');
+define('ZACKLIVE_THEME_JS_PREFIX', '.min');
 
 require get_template_directory() . '/inc/extras.php';
 require get_template_directory() . '/inc/settings/settings.php';
@@ -51,18 +51,14 @@ function zack_setup() {
 	add_filter( 'term_description', 'shortcode_unautop' );
 	add_filter( 'term_description', 'do_shortcode' );
 
-	add_theme_support( 'atzack-template-settings' );
+	add_theme_support( 'zacklive-template-settings' );
 
 }
 endif; // zack_setup.
 add_action( 'after_setup_theme', 'zack_setup' );
 
-if ( function_exists( 'is_woocommerce' ) ) {
-	require get_template_directory() . '/woocommerce/functions.php';
-}
-
 function zack_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'atzack_uwnind_content_width', 1140 );
+	$GLOBALS['content_width'] = apply_filters( 'zacklive_uwnind_content_width', 1140 );
 }
 add_action( 'after_setup_theme', 'zack_content_width', 0 );
 
@@ -87,18 +83,6 @@ function zack_widgets_init() {
 		'after_title'   => '</h2>',
 	) );
 
-	if ( function_exists( 'is_woocommerce' ) ) {
-		register_sidebar( array(
-			'name' 			=> esc_html__( 'Shop', 'zack' ),
-			'id' 			=> 'shop-sidebar',
-			'description' 	=> esc_html__( 'Displays on WooCommerce pages.', 'zack' ),
-			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-			'after_widget' 	=> '</aside>',
-			'before_title' 	=> '<h2 class="widget-title heading-strike">',
-			'after_title' 	=> '</h2>',
-		) );
-	}
-
 	register_sidebar( array(
 		'name'          => esc_html__( 'Masthead', 'zack' ),
 		'id'            => 'masthead-sidebar',
@@ -112,21 +96,21 @@ function zack_widgets_init() {
 add_action( 'widgets_init', 'zack_widgets_init' );
 
 function zack_scripts() {
-	wp_enqueue_style( 'zack-style', get_template_directory_uri() . '/style.min.css', array(), ATZACK_THEME_VERSION );
+	wp_enqueue_style( 'zack-style', get_template_directory_uri() . '/style.min.css', array(), ZACKLIVE_THEME_VERSION );
 
 	wp_register_style( 'zack-flexslider', get_template_directory_uri() . '/inc/flexslider.css' );
-	wp_register_script( 'jquery-flexslider', get_template_directory_uri() . '/js/jquery.flexslider' . ATZACK_THEME_JS_PREFIX . '.js', array( 'jquery' ), '2.6.3', true );
+	wp_register_script( 'jquery-flexslider', get_template_directory_uri() . '/js/jquery.flexslider' . ZACKLIVE_THEME_JS_PREFIX . '.js', array( 'jquery' ), '2.6.3', true );
 
-	if ( ( is_home() && atzack_setting( 'blog_featured_slider' ) && zack_has_featured_posts() ) || ( is_single() && has_post_format( 'gallery' ) ) ) {
+	if ( ( is_home() && zacklive_setting( 'blog_featured_slider' ) && zack_has_featured_posts() ) || ( is_single() && has_post_format( 'gallery' ) ) ) {
 		wp_enqueue_style( 'zack-flexslider' );
 		wp_enqueue_script( 'jquery-flexslider' );
 	}
 
 	if ( ! class_exists( 'Jetpack' ) ) {
-		wp_enqueue_script( 'jquery-fitvids', get_template_directory_uri() . '/js/jquery.fitvids' . ATZACK_THEME_JS_PREFIX . '.js', array( 'jquery' ), 1.1, true );
+		wp_enqueue_script( 'jquery-fitvids', get_template_directory_uri() . '/js/jquery.fitvids' . ZACKLIVE_THEME_JS_PREFIX . '.js', array( 'jquery' ), 1.1, true );
 	}
 
-	wp_enqueue_script( 'zack-script', get_template_directory_uri() . '/js/zack' . ATZACK_THEME_JS_PREFIX . '.js', array( 'jquery' ), ATZACK_THEME_VERSION, true );
+	wp_enqueue_script( 'zack-script', get_template_directory_uri() . '/js/zack' . ZACKLIVE_THEME_JS_PREFIX . '.js', array( 'jquery' ), ZACKLIVE_THEME_VERSION, true );
 
 	wp_enqueue_script( 'zack-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 

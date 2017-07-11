@@ -1,9 +1,9 @@
 		</div><!-- .container -->
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer <?php if ( ! atzack_setting( 'footer_constrained' ) ) echo 'unconstrained-footer'; if ( is_active_sidebar( 'footer-sidebar' ) ) echo ' footer-active-sidebar'; ?>" role="contentinfo">
+	<footer id="colophon" class="site-footer <?php if ( ! zacklive_setting( 'footer_constrained' ) ) echo 'unconstrained-footer'; if ( is_active_sidebar( 'footer-sidebar' ) ) echo ' footer-active-sidebar'; ?>" role="contentinfo">
 
-		<?php if ( atzack_page_setting( 'display_footer_widgets', true ) ) : ?>
+		<?php if ( zacklive_page_setting( 'display_footer_widgets', true ) ) : ?>
 			<div class="container">
 				<?php
 				if ( is_active_sidebar( 'footer-sidebar' ) ) {
@@ -25,7 +25,7 @@
 
 				$credit_text = apply_filters(
 					'zack_footer_credits',
-					sprintf( esc_html__( 'Designed by %s.', 'zack' ), '<a href="https://atzack.com/" rel="designer">AtZack WordPress Themes</a>' )
+					sprintf( esc_html__( 'Designed by %s.', 'zack' ), '<a href="https://zacklive.com/" rel="designer">ZackLive WordPress Themes</a>' )
 				);
 
 				if ( ! empty( $credit_text ) ) {

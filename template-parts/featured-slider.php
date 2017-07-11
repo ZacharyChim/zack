@@ -13,7 +13,7 @@ if ( empty( $slider ) ) return;
 
 			<li class="featured-post-slide" <?php if ( ! empty( $thumbnail ) ) echo 'style="background-image: url( \''  . esc_url( $thumbnail ) . '\' )"'; ?>>
 
-				<header class="slide-content <?php echo ( atzack_setting( 'blog_featured_slider_overlay' ) ? 'slide-overlay' : '' ) ?>">
+				<header class="slide-content <?php echo ( zacklive_setting( 'blog_featured_slider_overlay' ) ? 'slide-overlay' : '' ) ?>">
 					<a class="slide-entry-link" href="<?php the_permalink(); ?>"></a>
 					<div class="slide-inner">
 						<div class="slide-inner-cell">

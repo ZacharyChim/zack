@@ -1,7 +1,7 @@
 <?php
 
-class AtZack_Settings_Control_Font extends WP_Customize_Control {
-	public $type = 'atzack-font';
+class ZackLive_Settings_Control_Font extends WP_Customize_Control {
+	public $type = 'zacklive-font';
 
 	/**
 	 * Render the font selector
@@ -79,11 +79,11 @@ class AtZack_Settings_Control_Font extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 		// We'll use chosen for the font selector
-		wp_enqueue_script( 'atzack-settings-chosen', get_template_directory_uri() . '/inc/settings/chosen/chosen.jquery.min.js', array('jquery'), '1.4.2' );
-		wp_enqueue_style( 'atzack-settings-chosen', get_template_directory_uri() . '/inc/settings/chosen/chosen.min.css', array(), '1.4.2' );
+		wp_enqueue_script( 'zacklive-settings-chosen', get_template_directory_uri() . '/inc/settings/chosen/chosen.jquery.min.js', array('jquery'), '1.4.2' );
+		wp_enqueue_style( 'zacklive-settings-chosen', get_template_directory_uri() . '/inc/settings/chosen/chosen.min.css', array(), '1.4.2' );
 
 		// The main font controls
-		wp_enqueue_script( 'atzack-settings-font-control', get_template_directory_uri() . '/inc/settings/js/control/font-control' . ATZACK_THEME_JS_PREFIX . '.js', array( 'jquery', 'customize-controls' ) );
-		wp_enqueue_style( 'atzack-settings-font-control', get_template_directory_uri() . '/inc/settings/css/control/font-control.css', array() );
+		wp_enqueue_script( 'zacklive-settings-font-control', get_template_directory_uri() . '/inc/settings/js/control/font-control' . ZACKLIVE_THEME_JS_PREFIX . '.js', array( 'jquery', 'customize-controls' ) );
+		wp_enqueue_style( 'zacklive-settings-font-control', get_template_directory_uri() . '/inc/settings/css/control/font-control.css', array() );
 	}
 }

@@ -1,8 +1,8 @@
 <?php
 
-class AtZack_Settings_Control_Widget extends WP_Customize_Control {
+class ZackLive_Settings_Control_Widget extends WP_Customize_Control {
 
-	public $type = 'atzack-widget-setting';
+	public $type = 'zacklive-widget-setting';
 
 	public $widget_args;
 
@@ -16,9 +16,9 @@ class AtZack_Settings_Control_Widget extends WP_Customize_Control {
 			?><span class="description customize-control-description"><?php echo $this->description; ?></span><?php
 		}
 
-		if( !class_exists( $this->widget_args['class'] ) && !empty( $this->widget_args['bundle_widget'] ) && class_exists('AtZack_Widgets_Bundle') ) {
+		if( !class_exists( $this->widget_args['class'] ) && !empty( $this->widget_args['bundle_widget'] ) && class_exists('ZackLive_Widgets_Bundle') ) {
 			// If this is a widget bundle widget, and the class isn't available, then try activate it.
-			AtZack_Widgets_Bundle::single()->activate_widget( $this->widget_args['bundle_widget'] );
+			ZackLive_Widgets_Bundle::single()->activate_widget( $this->widget_args['bundle_widget'] );
 		}
 
 		if( !class_exists( $this->widget_args['class'] ) ) {
@@ -52,7 +52,7 @@ class AtZack_Settings_Control_Widget extends WP_Customize_Control {
 			// Convert the widget field naming into ones that Settings will use
 			$exp = preg_quote( $the_widget->get_field_name('____') );
 			$exp = str_replace('____', '(.*?)', $exp);
-			$form = preg_replace( '/'.$exp.'/', 'atzack_settings_widget['.preg_quote(1).'][$1]', $form );
+			$form = preg_replace( '/'.$exp.'/', 'zacklive_settings_widget['.preg_quote(1).'][$1]', $form );
 			$form .= '<p><a href="" class="button-secondary so-widget-close">' . __( 'Close', 'zack' ) . '</a></p>';
 
 			?>
@@ -67,7 +67,7 @@ class AtZack_Settings_Control_Widget extends WP_Customize_Control {
 	}
 
 	public function enqueue() {
-		wp_enqueue_script( 'atzack-settings-widget-control', get_template_directory_uri() . '/inc/settings/js/control/widget-setting-control' . ATZACK_THEME_JS_PREFIX . '.js', array( 'jquery', 'customize-controls' ) );
-		wp_enqueue_style( 'atzack-settings-widget-control', get_template_directory_uri() . '/inc/settings/css/control/widget-setting-control.css', array() );
+		wp_enqueue_script( 'zacklive-settings-widget-control', get_template_directory_uri() . '/inc/settings/js/control/widget-setting-control' . ZACKLIVE_THEME_JS_PREFIX . '.js', array( 'jquery', 'customize-controls' ) );
+		wp_enqueue_style( 'zacklive-settings-widget-control', get_template_directory_uri() . '/inc/settings/css/control/widget-setting-control.css', array() );
 	}
 }

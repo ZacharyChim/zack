@@ -1,6 +1,6 @@
 <?php
 
-class AtZack_Settings_CSS_Functions {
+class ZackLive_Settings_CSS_Functions {
 
 	function __construct(){
 	}
@@ -52,15 +52,15 @@ class AtZack_Settings_CSS_Functions {
 	function rgba( $match ) {
 		if( empty( $match[2] ) ) return '';
 		$args = explode( ',', $match[2] );
-		$rgb = AtZack_Settings_Color::hex2rgb( trim( $args[0] ) );
+		$rgb = ZackLive_Settings_Color::hex2rgb( trim( $args[0] ) );
 
 		return 'rgba(' . implode( ',', array_merge( $rgb, array( floatval( $args[1] ) ) ) ) . ')';
 	}
 
 	function lighten( $match ) {
 		$args = explode( ',', $match[2] );
-		$rgb = AtZack_Settings_Color::hex2rgb( trim( $args[0] ) );
-		$hsv = AtZack_Settings_Color::rgb2hsv( $rgb );
+		$rgb = ZackLive_Settings_Color::hex2rgb( trim( $args[0] ) );
+		$hsv = ZackLive_Settings_Color::rgb2hsv( $rgb );
 		if( strpos( $args[1], '%' ) !== false ) {
 			$percent = intval( trim($args[1]) ) / 100;
 		} else {
@@ -68,13 +68,13 @@ class AtZack_Settings_CSS_Functions {
 		}
 
 		$hsv[2] += $percent;
-		return AtZack_Settings_Color::rgb2hex( AtZack_Settings_Color::hsv2rgb( $hsv ) );
+		return ZackLive_Settings_Color::rgb2hex( ZackLive_Settings_Color::hsv2rgb( $hsv ) );
 	}
 
 	function darken( $match ) {
 		$args = explode( ',', $match[2] );
-		$rgb = AtZack_Settings_Color::hex2rgb( trim( $args[0] ) );
-		$hsv = AtZack_Settings_Color::rgb2hsv( $rgb );
+		$rgb = ZackLive_Settings_Color::hex2rgb( trim( $args[0] ) );
+		$hsv = ZackLive_Settings_Color::rgb2hsv( $rgb );
 		if( strpos( $args[1], '%' ) !== false ) {
 			$percent = intval( trim($args[1]) ) / 100;
 		} else {
@@ -82,7 +82,7 @@ class AtZack_Settings_CSS_Functions {
 		}
 
 		$hsv[2] -= $percent;
-		return AtZack_Settings_Color::rgb2hex( AtZack_Settings_Color::hsv2rgb( $hsv ) );
+		return ZackLive_Settings_Color::rgb2hex( ZackLive_Settings_Color::hsv2rgb( $hsv ) );
 	}
 
 }

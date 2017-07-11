@@ -1,5 +1,5 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'archive-entry' ); ?>>
-	<?php if( has_post_thumbnail() && atzack_setting( 'blog_featured_archive' ) ) : ?>
+	<?php if( has_post_thumbnail() && zacklive_setting( 'blog_featured_archive' ) ) : ?>
 		<div class="entry-thumbnail">
 			<a href="<?php the_permalink() ?>">
 				<?php the_post_thumbnail( 'post-thumbnail', array( 'class' => 'aligncenter' ) ); ?>
@@ -13,7 +13,7 @@
 
 	<div class="entry-content">
 		<?php
-			if ( atzack_setting( 'blog_archive_content' ) == 'excerpt' ) the_excerpt();
+			if ( zacklive_setting( 'blog_archive_content' ) == 'excerpt' ) the_excerpt();
 			else the_content();
 
 			wp_link_pages( array(

@@ -1,7 +1,7 @@
 <?php
 
-class AtZack_Settings_Control_Image_Select extends WP_Customize_Control {
-	public $type = 'atzack-image-select';
+class ZackLive_Settings_Control_Image_Select extends WP_Customize_Control {
+	public $type = 'zacklive-image-select';
 	public $choices;
 
 	function render_content() {
@@ -34,7 +34,7 @@ class AtZack_Settings_Control_Image_Select extends WP_Customize_Control {
 	}
 
 	public function enqueue() {
-		wp_enqueue_script( 'atzack-settings-image-select-control', get_template_directory_uri() . '/inc/settings/js/control/image-select-control' . ATZACK_THEME_JS_PREFIX . '.js', array( 'jquery', 'customize-controls' ) );
-		wp_enqueue_style( 'atzack-settings-image-select-control', get_template_directory_uri() . '/inc/settings/css/control/image-select-control.css', array() );
+		wp_enqueue_script( 'zacklive-settings-image-select-control', get_template_directory_uri() . '/inc/settings/js/control/image-select-control' . ZACKLIVE_THEME_JS_PREFIX . '.js', array( 'jquery', 'customize-controls' ) );
+		wp_enqueue_style( 'zacklive-settings-image-select-control', get_template_directory_uri() . '/inc/settings/css/control/image-select-control.css', array() );
 	}
 }

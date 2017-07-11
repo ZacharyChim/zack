@@ -3,9 +3,9 @@
 
 jQuery( function($){
 
-    var $style = $('style[data-atzack-settings="true"]');
+    var $style = $('style[data-zacklive-settings="true"]');
     if( $style.length === 0 ) {
-        $style = $('<style type="text/css" id="atzack-settings-css" data-atzack-settings="true"></style>').appendTo('head');tinycolor.js
+        $style = $('<style type="text/css" id="zacklive-settings-css" data-zacklive-settings="true"></style>').appendTo('head');tinycolor.js
     }
 
     function replaceAll(string, find, replace) {
@@ -36,7 +36,7 @@ jQuery( function($){
         }
 
         // Now we also need to handle the CSS functions.
-        // This should mirror what's in PHP - AtZack_Settings::css_functions
+        // This should mirror what's in PHP - ZackLive_Settings::css_functions
         var match, replace, prepend, fargs, color;
         do {
             match =  css.match(/\.([a-z\-]+) *\(([^\)]*)\) *;/);

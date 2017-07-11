@@ -1,15 +1,15 @@
 <?php
-$post_class = atzack_setting( 'blog_search_fallback' ) ? 'has-fallback-image' : '';
+$post_class = zacklive_setting( 'blog_search_fallback' ) ? 'has-fallback-image' : '';
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( $post_class ); ?>>
-	<?php if ( has_post_thumbnail() || atzack_setting( 'blog_search_fallback' ) ) : ?>
+	<?php if ( has_post_thumbnail() || zacklive_setting( 'blog_search_fallback' ) ) : ?>
 		<div class="entry-thumbnail">
 			<a href="<?php the_permalink(); ?>">
 				<?php if ( has_post_thumbnail() ) : ?>
 					<?php the_post_thumbnail( 'zack-360x238-crop' ); ?>
-				<?php elseif ( atzack_setting( 'blog_search_fallback' ) ) : ?>
-					<?php echo wp_get_attachment_image( atzack_setting( 'blog_search_fallback' ), 'zack-360x238-crop', false, '' ); ?>
+				<?php elseif ( zacklive_setting( 'blog_search_fallback' ) ) : ?>
+					<?php echo wp_get_attachment_image( zacklive_setting( 'blog_search_fallback' ), 'zack-360x238-crop', false, '' ); ?>
 				<?php endif; ?>
 			</a>
 		</div>

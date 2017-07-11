@@ -12,11 +12,11 @@
 				get_template_part( 'template-parts/content', 'single' );
 			}
 
-			if ( atzack_setting( 'blog_display_author_box' ) ) :
+			if ( zacklive_setting( 'blog_display_author_box' ) ) :
 				zack_author_box();
 			endif;
 
-			if ( ! is_attachment() && atzack_setting( 'blog_display_related_posts' ) ) :
+			if ( ! is_attachment() && zacklive_setting( 'blog_display_related_posts' ) ) :
 				zack_related_posts( $post->ID );
 			endif;
 
@@ -25,7 +25,7 @@
 				<?php echo sharing_display();
 			endif;
 
-			if ( atzack_setting( 'navigation_post' ) ) :
+			if ( zacklive_setting( 'navigation_post' ) ) :
 				zack_the_post_navigation();
 			endif;
 
