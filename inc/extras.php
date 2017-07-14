@@ -18,10 +18,6 @@ function zack_body_classes( $classes ) {
 	}
 	add_action( 'wp_head', 'zack_pingback_header' );
 
-	if ( is_home() && zacklive_setting( 'blog_featured_slider' ) && zack_has_featured_posts() ) {
-		$classes[] = 'homepage-has-slider';
-	}
-
 	if ( wp_is_mobile() ) {
 		$classes[] = 'is_mobile';
 	}

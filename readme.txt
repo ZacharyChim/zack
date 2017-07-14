@@ -16,7 +16,7 @@ Minimalist yet modern design WordPress theme. Perfect for personal blogs.
 
 == Description ==
 
-Minimalist yet modern design WordPress theme. Based on Underscore(_s) starter theme by Automattic. Support Jetpack featured content with FlexSlider. Perfect for personal blogs and e-commerce websites.
+Minimalist yet modern design WordPress theme. Based on Underscore(_s) starter theme by Automattic. Perfect for personal blogs.
 
 == Installation ==
 
@@ -35,10 +35,6 @@ Please visit our website on https://zacklive.com.
 FitVids, Copyright 2013, [Chris Coyier](http://css-tricks.com) and [Dave Rupert](http://daverupert.com)
 Licensed under the WTFPL license
 [Source](https://github.com/davatron5000/FitVids.js/)
-
-FlexSlider, Copyright 2012 WooThemes
-Free to use under the GPLv2 license
-[Source](http://www.woothemes.com/flexslider/)
 
 Normalize.css, Copyright Nicolas Gallagher and Jonathan Neal
 Licensed under the [MIT License](http://opensource.org/licenses/MIT)

@@ -169,14 +169,6 @@ function zack_settings_init() {
 		'blog' => array(
 			'title' => esc_html__( 'Blog', 'zack' ),
 			'fields' => array(
-				'featured_slider' => array(
-					'type' => 'checkbox',
-					'label' => esc_html__( 'Jetpack Featured Content slider on blog home page.', 'zack' ),
-				),
-				'featured_slider_overlay' => array(
-					'type' => 'checkbox',
-					'label' => esc_html__( 'Jetpack Featured Content slider image overlay. Also applies to slider in Post Loop widget.', 'zack' ),
-				),
 				'featured_archive' => array(
 					'type' => 'checkbox',
 					'label' => esc_html__( 'Featured image on archive pages.', 'zack' ),
@@ -604,9 +596,6 @@ function zack_settings_custom_css( $css ) {
 	}
 	#colophon.unconstrained-footer .container {
 	padding: 0 ${footer_side_padding};
-	}
-	.flexslider.featured-posts-slider .featured-posts-slides .featured-post-slide .slide-content .entry-button .button:hover,.flexslider.featured-posts-slider .featured-posts-slides .featured-post-slide .slide-content .entry-button #page #infinite-handle span button:hover,#page #infinite-handle span .flexslider.featured-posts-slider .featured-posts-slides .featured-post-slide .slide-content .entry-button button:hover {
-	color: ${fonts_text_dark};
 	}';
 	return $css;
 }
@@ -622,8 +611,7 @@ function zack_menu_breakpoint_css( $css, $settings ) {
 			display: block;
 		}
 		.main-navigation > div,
-		.main-navigation > div ul,
-		.main-navigation .shopping-cart {
+		.main-navigation > div ul {
 			display: none;
 		}
 	}
@@ -633,9 +621,6 @@ function zack_menu_breakpoint_css( $css, $settings ) {
 		}
 		.main-navigation > div ul {
 			display: block;
-		}
-		.main-navigation .shopping-cart {
-			display: inline-block;
 		}
 		.main-navigation .menu-toggle {
 			display: none;
@@ -680,8 +665,6 @@ function zack_settings_defaults( $defaults ) {
 	$defaults['layout_main_sidebar'] = 'right';
 
 	// Blog settings.
-	$defaults['blog_featured_slider']         = false;
-	$defaults['blog_featured_slider_overlay'] = false;
 	$defaults['blog_featured_archive']        = true;
 	$defaults['blog_featured_single']         = true;
 	$defaults['blog_archive_content']         = 'full';

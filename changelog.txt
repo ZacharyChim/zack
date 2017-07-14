@@ -1,3 +1,6 @@
+= 1.0.2 - 14 July 2017 =
+Remove the support for Slider.
+
 = 1.0.1 - 10 July 2017 =
 Remove the support for WooCommerce.
 

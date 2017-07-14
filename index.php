@@ -1,12 +1,4 @@
-<?php
-
-	get_header();
-
-	if ( zacklive_setting( 'blog_featured_slider' ) && zack_has_featured_posts() ) : ?>
-
-		<?php get_template_part( 'template-parts/featured', 'slider' ); ?>
-
-	<?php endif; ?>
+<?php get_header(); ?>
 
 	<div id="primary" class="content-area">
 

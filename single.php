@@ -6,7 +6,7 @@
 		<?php
 		while ( have_posts() ) : the_post();
 
-			if ( has_post_format( array( 'gallery', 'video', 'image' ) ) ) {
+			if ( has_post_format( array( 'video', 'image' ) ) ) {
 				get_template_part( 'template-parts/content', get_post_format() );
 			} else {
 				get_template_part( 'template-parts/content', 'single' );
