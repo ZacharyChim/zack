@@ -1,0 +1,621 @@
+# Copyright (C) 2017 Zack
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Zack 1.0.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/zack\n"
+"POT-Creation-Date: 2017-07-14 11:30:05+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: 404.php:9
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:14
+msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
+msgstr ""
+
+#: 404.php:25
+msgid "Most Used Categories"
+msgstr ""
+
+#. translators: %1$s: smiley
+
+#: 404.php:43
+msgid "Try looking in the monthly archives. %1$s"
+msgstr ""
+
+#: comments.php:14
+msgctxt "comments title"
+msgid "1 Comment"
+msgid_plural "%1$s Comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:23 comments.php:45
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:26 comments.php:48
+msgid "Older comments"
+msgstr ""
+
+#: comments.php:27 comments.php:49
+msgid "Newer comments"
+msgstr ""
+
+#: comments.php:60
+msgid "Comments are closed."
+msgstr ""
+
+#: footer.php:12
+msgid "Footer Sidebar"
+msgstr ""
+
+#: footer.php:28
+msgid "Designed by %s."
+msgstr ""
+
+#: functions.php:20
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:60
+msgid "Sidebar"
+msgstr ""
+
+#: functions.php:62
+msgid "Visible on posts and pages that use the Default or Full Width, With Sidebar layout."
+msgstr ""
+
+#: functions.php:70 inc/settings.php:227
+msgid "Footer"
+msgstr ""
+
+#: functions.php:72
+msgid "A column will be automatically assigned to each widget inserted"
+msgstr ""
+
+#: functions.php:80
+msgid "Masthead"
+msgstr ""
+
+#: functions.php:82
+msgid "Replaces the logo and description."
+msgstr ""
+
+#: header.php:13
+msgid "Skip to content"
+msgstr ""
+
+#: inc/settings/inc/control/font.php:63 inc/settings.php:7
+msgid "Variant"
+msgstr ""
+
+#: inc/settings/inc/control/font.php:68 inc/settings.php:8
+msgid "Subset"
+msgstr ""
+
+#: inc/settings/inc/control/widget.php:27
+msgid "This field requires the Widgets Bundle plugin."
+msgstr ""
+
+#: inc/settings/inc/control/widget.php:29
+msgid "<a href=\"%s\">Install</a> the Widgets Bundle now."
+msgstr ""
+
+#: inc/settings/inc/control/widget.php:51
+#: inc/settings/inc/control/widget.php:56
+msgid "Close"
+msgstr ""
+
+#: inc/settings/inc/control/widget.php:63
+msgid "Edit Widget"
+msgstr ""
+
+#: inc/settings/inc/page_settings.php:173 inc/settings.php:10
+msgid "Page settings"
+msgstr ""
+
+#: inc/settings/inc/page_settings_customizer.php:38
+msgid "Page Template Settings"
+msgstr ""
+
+#: inc/settings/inc/page_settings_customizer.php:39
+msgid "Change layouts for various pages on your site."
+msgstr ""
+
+#: inc/settings/inc/page_settings_customizer.php:47
+msgid "Blog Page"
+msgstr ""
+
+#: inc/settings/inc/page_settings_customizer.php:48
+msgid "Search Results"
+msgstr ""
+
+#: inc/settings/inc/page_settings_customizer.php:49
+msgid "Date Archives"
+msgstr ""
+
+#: inc/settings/inc/page_settings_customizer.php:50
+msgid "Author Archives"
+msgstr ""
+
+#: inc/settings/inc/page_settings_customizer.php:51
+msgid "Not Found"
+msgstr ""
+
+#: inc/settings/inc/page_settings_customizer.php:69
+msgid "Type"
+msgstr ""
+
+#: inc/settings/inc/page_settings_customizer.php:80
+msgid "Taxonomy"
+msgstr ""
+
+#: inc/settings/settings.php:408 inc/settings.php:4
+msgid "Theme Settings"
+msgstr ""
+
+#: inc/settings/settings.php:409 inc/settings.php:5
+msgid "Change settings for your theme."
+msgstr ""
+
+#: inc/settings.php:20
+msgid "Branding"
+msgstr ""
+
+#: inc/settings.php:24
+msgid "Logo"
+msgstr ""
+
+#: inc/settings.php:25
+msgid "Logo displayed in your header."
+msgstr ""
+
+#: inc/settings.php:29
+msgid "Retina Logo"
+msgstr ""
+
+#: inc/settings.php:30
+msgid "A double sized logo to use on retina devices."
+msgstr ""
+
+#: inc/settings.php:34
+msgid "Site Description"
+msgstr ""
+
+#: inc/settings.php:35
+msgid "Show your site description below your site title or logo."
+msgstr ""
+
+#: inc/settings.php:39
+msgid "Accent Color"
+msgstr ""
+
+#: inc/settings.php:40
+msgid "The color used for links and various other accents."
+msgstr ""
+
+#: inc/settings.php:45
+msgid "Dark Accent Color"
+msgstr ""
+
+#: inc/settings.php:46
+msgid "The color used for link hovers and various other accents."
+msgstr ""
+
+#: inc/settings.php:53
+msgid "Fonts"
+msgstr ""
+
+#: inc/settings.php:57
+msgid "Details font"
+msgstr ""
+
+#: inc/settings.php:58 inc/settings.php:76
+msgid "Used for smaller details."
+msgstr ""
+
+#: inc/settings.php:63
+msgid "Main font"
+msgstr ""
+
+#: inc/settings.php:64 inc/settings.php:82
+msgid "Used for body text."
+msgstr ""
+
+#: inc/settings.php:69
+msgid "Headings font"
+msgstr ""
+
+#: inc/settings.php:70 inc/settings.php:89
+msgid "Used for headings."
+msgstr ""
+
+#: inc/settings.php:75
+msgid "Light Text Color"
+msgstr ""
+
+#: inc/settings.php:81
+msgid "Medium Text Color"
+msgstr ""
+
+#: inc/settings.php:88
+msgid "Dark Text Color"
+msgstr ""
+
+#: inc/settings.php:96 inc/settings.php:727
+msgid "Header"
+msgstr ""
+
+#: inc/settings.php:100
+msgid "Header Padding"
+msgstr ""
+
+#: inc/settings.php:101
+msgid "Top and bottom header padding."
+msgstr ""
+
+#: inc/settings.php:106
+msgid "Bottom Margin"
+msgstr ""
+
+#: inc/settings.php:113
+msgid "Navigation"
+msgstr ""
+
+#: inc/settings.php:117
+msgid "Sticky menu"
+msgstr ""
+
+#: inc/settings.php:118
+msgid "Stick menu to top of screen."
+msgstr ""
+
+#: inc/settings.php:121
+msgid "Mobile Menu Collapse"
+msgstr ""
+
+#: inc/settings.php:123
+msgid "The screen width in pixels when the primary menu changes to a mobile menu."
+msgstr ""
+
+#: inc/settings.php:127 inc/template-tags.php:267
+msgid "Post navigation"
+msgstr ""
+
+#: inc/settings.php:128
+msgid "Display next and previous post navigation."
+msgstr ""
+
+#: inc/settings.php:134
+msgid "Icons"
+msgstr ""
+
+#: inc/settings.php:138
+msgid "Mobile menu icon"
+msgstr ""
+
+#: inc/settings.php:142
+msgid "Fullscreen search icon"
+msgstr ""
+
+#: inc/settings.php:146
+msgid "Menu search icon"
+msgstr ""
+
+#: inc/settings.php:150
+msgid "Menu close search icon"
+msgstr ""
+
+#: inc/settings.php:156
+msgid "Layout"
+msgstr ""
+
+#: inc/settings.php:160
+msgid "Main Sidebar Position"
+msgstr ""
+
+#: inc/settings.php:162
+msgid "Right"
+msgstr ""
+
+#: inc/settings.php:163
+msgid "Left"
+msgstr ""
+
+#: inc/settings.php:170
+msgid "Blog"
+msgstr ""
+
+#: inc/settings.php:174
+msgid "Featured image on archive pages."
+msgstr ""
+
+#: inc/settings.php:178
+msgid "Featured image on single post."
+msgstr ""
+
+#: inc/settings.php:182
+msgid "Post Content"
+msgstr ""
+
+#: inc/settings.php:184
+msgid "Full Post"
+msgstr ""
+
+#: inc/settings.php:185
+msgid "Post Excerpt"
+msgstr ""
+
+#: inc/settings.php:187
+msgid "Choose how to display your post content on the blog and archive pages. Select Full Post if using the \"more\" quicktag."
+msgstr ""
+
+#: inc/settings.php:191
+msgid "Post Excerpt Read More Link"
+msgstr ""
+
+#: inc/settings.php:192
+msgid "Display the Read More link below the post excerpt."
+msgstr ""
+
+#: inc/settings.php:196
+msgid "Date on single and archive posts."
+msgstr ""
+
+#: inc/settings.php:200
+msgid "Categories on single and archive posts."
+msgstr ""
+
+#: inc/settings.php:204
+msgid "Comments link on single and archive posts."
+msgstr ""
+
+#: inc/settings.php:208
+msgid "Tags on single posts."
+msgstr ""
+
+#: inc/settings.php:212
+msgid "Related posts on single post."
+msgstr ""
+
+#: inc/settings.php:216
+msgid "Author box on single post."
+msgstr ""
+
+#: inc/settings.php:220
+msgid "Search fallback image"
+msgstr ""
+
+#: inc/settings.php:221
+msgid "Used for blog posts with no featured image."
+msgstr ""
+
+#: inc/settings.php:232
+msgid "Footer Text"
+msgstr ""
+
+#: inc/settings.php:233
+msgid "{sitename} and {year} are your site's name and current year."
+msgstr ""
+
+#: inc/settings.php:239
+msgid "Constrain"
+msgstr ""
+
+#: inc/settings.php:240
+msgid "Constrain the footer width."
+msgstr ""
+
+#: inc/settings.php:245
+msgid "Top Padding"
+msgstr ""
+
+#: inc/settings.php:251
+msgid "Side Padding"
+msgstr ""
+
+#: inc/settings.php:252
+msgid "Applies if the footer width is not constrained."
+msgstr ""
+
+#: inc/settings.php:258
+msgid "Top Margin"
+msgstr ""
+
+#: inc/settings.php:681
+msgid "{year} &copy; {sitename}."
+msgstr ""
+
+#: inc/settings.php:695
+msgid "Page Layout"
+msgstr ""
+
+#: inc/settings.php:697
+msgid "Default"
+msgstr ""
+
+#: inc/settings.php:698
+msgid "No Sidebar"
+msgstr ""
+
+#: inc/settings.php:699
+msgid "Full Width"
+msgstr ""
+
+#: inc/settings.php:700
+msgid "Full Width, With Sidebar"
+msgstr ""
+
+#: inc/settings.php:706
+msgid "Page Title"
+msgstr ""
+
+#: inc/settings.php:707 inc/settings.php:714 inc/settings.php:721
+#: inc/settings.php:728 inc/settings.php:735
+msgid "Enable"
+msgstr ""
+
+#: inc/settings.php:708
+msgid "Display the page title."
+msgstr ""
+
+#: inc/settings.php:713
+msgid "Header Bottom Margin"
+msgstr ""
+
+#: inc/settings.php:715
+msgid "Display the margin below the header."
+msgstr ""
+
+#: inc/settings.php:720
+msgid "Footer Top Margin"
+msgstr ""
+
+#: inc/settings.php:722
+msgid "Display the margin above the footer."
+msgstr ""
+
+#: inc/settings.php:729
+msgid "Display the header."
+msgstr ""
+
+#: inc/settings.php:734
+msgid "Footer Widgets"
+msgstr ""
+
+#: inc/settings.php:736
+msgid "Display the footer widgets."
+msgstr ""
+
+#: inc/template-tags.php:100
+msgid "Home"
+msgstr ""
+
+#: inc/template-tags.php:154
+msgid "Leave a comment"
+msgstr ""
+
+#: inc/template-tags.php:154 inc/template-tags.php:203
+msgid "1 Comment"
+msgstr ""
+
+#: inc/template-tags.php:154
+msgid "% Comments"
+msgstr ""
+
+#: inc/template-tags.php:175 inc/template-tags.php:185
+msgid "Read More"
+msgstr ""
+
+#: inc/template-tags.php:194
+msgid ", "
+msgstr ""
+
+#: inc/template-tags.php:199
+msgid "Post a Comment"
+msgstr ""
+
+#: inc/template-tags.php:201
+msgid " Comments"
+msgstr ""
+
+#: inc/template-tags.php:210
+msgid "Sticky"
+msgstr ""
+
+#: inc/template-tags.php:223
+msgid "%1$s"
+msgstr ""
+
+#: inc/template-tags.php:240
+msgid "Posts navigation"
+msgstr ""
+
+#: inc/template-tags.php:244
+msgid "Older posts"
+msgstr ""
+
+#: inc/template-tags.php:248
+msgid "Newer posts"
+msgstr ""
+
+#: inc/template-tags.php:270
+msgid "Previous Post"
+msgstr ""
+
+#: inc/template-tags.php:273
+msgid "Next Post"
+msgstr ""
+
+#: inc/template-tags.php:297
+msgid "You may also like"
+msgstr ""
+
+#: inc/template-tags.php:315
+msgid "No related posts."
+msgstr ""
+
+#: search.php:5
+msgid "Search Results: %s"
+msgstr ""
+
+#: searchform.php:2
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:3 searchform.php:5
+msgid "Search"
+msgstr ""
+
+#: single.php:24
+msgid "Share This"
+msgstr ""
+
+#: template-parts/content-image.php:41 template-parts/content-page.php:13
+#: template-parts/content-single.php:21 template-parts/content-video.php:41
+#: template-parts/content.php:20
+msgid "Pages:"
+msgstr ""
+
+#: template-parts/content-none.php:3
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content-none.php:10
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content-none.php:14
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: template-parts/content-none.php:20
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+#. Theme Name of the plugin/theme
+msgid "Zack"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "https://zacklive.com/theme-zack/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Minimalist yet modern design WordPress theme. Based on Underscore(_s) starter theme by Automattic. Perfect for personal blogs."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Zack"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://zacklive.com/"
+msgstr ""
